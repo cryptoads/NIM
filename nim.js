@@ -21,10 +21,11 @@ function checkWinner(rocks){
 }
 
 function pickRocks(){
+    alert(player + "'s turn");
     var pilePicked = prompt("Pick a pile ");
     var numRocks = prompt("Number Of rocks? 1-3");
     if (rocks[pilePicked].includes('@')){
-        if(numRocks <= rocks[pilePicked].join(',').replace(/\,/g, "").length){
+        if(numRocks <= rocks[pilePicked].join(',').replace(/\,/g, "").length && numRocks <= 3){
         for(var i = 0; i < numRocks; i++){
             rocks[pilePicked].pop();
             if(player === 'player 1'){
@@ -33,6 +34,8 @@ function pickRocks(){
             player='player 1';
         }
         }
+    }else{
+        alert('bad selection');
     }
     }else{
         alert('bad selection');
