@@ -14,7 +14,7 @@ function checkPile(pile){
 }
 
 function checkWinner(rocks){
- if(rocks.join(',').replace(/\,/g, "") == '@'){
+ if(rocks.join(',').replace(/\,/g, "").length <= 3){
     alert(player + 'wins');
     winner = true;
  }
@@ -25,7 +25,7 @@ function pickRocks(){
     var pilePicked = prompt("Pick a pile ");
     var numRocks = prompt("Number Of rocks? 1-3");
     if (rocks[pilePicked].includes('@')){
-        if(numRocks <= rocks[pilePicked].join(',').replace(/\,/g, "").length && numRocks <= 3){
+        if(numRocks <= rocks[pilePicked].join(',').replace(/\,/g, "").length && numRocks <= 3 && numRocks >= 1){
         for(var i = 0; i < numRocks; i++){
             rocks[pilePicked].pop();
             if(player === 'player 1'){
